@@ -17,6 +17,7 @@ export function middleware(req) {
   const { pathname } = req.nextUrl;
 
   const publicPaths = [
+    "/home",
     "/login",
     "/signup",
     "/forgot-password",
@@ -29,7 +30,7 @@ export function middleware(req) {
     if (token) {
       return NextResponse.redirect(new URL("/dashboard", req.url));
     }
-    return NextResponse.redirect(new URL("/login", req.url));
+    return NextResponse.redirect(new URL("/home", req.url));
   }
 
   // No token on protected route → send to login
